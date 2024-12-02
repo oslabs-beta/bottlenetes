@@ -174,4 +174,3 @@ kubectl port-forward prometheus-prometheus-kube-prometheus-prometheus-0 9090
    https://github.com/ruanbekker/cheatsheets/blob/master/prometheus/README.md
    https://signoz.io/guides/promql-cheat-sheet/
    https://last9.io/blog/promql-cheat-sheet/
-   https://last9.io/blog/promql-cheat-sheet/
