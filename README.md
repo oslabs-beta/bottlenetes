@@ -3,7 +3,7 @@
 ## Prep work
 
 1. Download the docker desktop
-2. Install minikube, helm, and kubeclt by running the following commands in the terminal:
+2. Install minikube, helm, and kubectl by running the following commands in the terminal:
 
 ```
 brew install minikube
@@ -68,19 +68,19 @@ minikube start
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: grad-assessment-app-b
+  name: name-of-your-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: grad-assessment-app-b
+      app: name-of-your-app
   template:
     metadata:
       labels:
-        app: grad-assessment-app-b
+        app: name-of-your-app
     spec:
       containers:
-        - name: grad-assessment-app-b
+        - name: name-of-your-app
           image: yourDockerhubUsername/nameOfDockerImage
           imagePullPolicy: Always
           resources:
@@ -96,11 +96,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: grad-assessment-app-b
+  name: name-of-your-app
 spec:
   type: NodePort
   selector:
-    app: grad-assessment-app-b
+    app: name-of-your-app
   ports:
     - port: 3333
       targetPort: 3333
