@@ -1,4 +1,4 @@
-# Initial Setup Guideabc
+# Initial Setup Guide
 
 ## Prep work
 
