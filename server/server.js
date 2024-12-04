@@ -4,6 +4,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 
 import { runPromQLQuery } from "./controllers/prometheusController.js";
+import { generateQuery } from "./controllers/promqlController.js";
 
 const app = express();
 
@@ -11,8 +12,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.get("/query", runPromQLQuery, (req, res) => {
-  res.send("Hello World");
+app.post("/query", generateQuery, runPromQLQuery, (req, res) => {
+  res.status(200).json(res.locals.data);
 });
 
 app.use((err, req, res, next) => {
