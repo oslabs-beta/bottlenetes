@@ -26,37 +26,37 @@ const TestGrid = () => {
       buttonArray.push(
         <button
           key={i}
-          className="m-1 rounded-3xl border-4 border-solid border-slate-950 bg-green-400 py-11"
+          className="m-1 rounded-3xl bg-green-400 py-11 transition hover:filter hover:brightness-90"
           style={{
             backgroundColor: color(Math.floor(Math.random() * 100), 0, 100),
           }}
         >
-          {testArray[i]}
+          
         </button>,
       );
     } else if (status === 'error') {
       buttonArray.push(
         <button
           key={i}
-          className="m-1 rounded-3xl border-4 border-solid border-slate-950 py-11 bg-red-400"
+          className="m-1 rounded-3xl py-11 bg-red-400 transition hover:filter hover:brightness-90"
         >
-          {testArray[i]}
+          
         </button>,
       );
     } else {
       buttonArray.push(
         <button
           key={i}
-          className="m-1 rounded-3xl border-4 border-solid border-slate-950 py-11"
+          className="m-1 rounded-3xl py-11 bg-zinc-300 transition hover:filter hover:brightness-90"
         >
-          {testArray[i]}
+          
         </button>,
       );
     }
   }
 
   return (
-    <div id="test-grid" className="grid h-screen grid-cols-10 overflow-scroll">
+    <div id="test-grid" className="grid h-screen grid-cols-8 overflow-scroll">
       {buttonArray}
     </div>
   );
