@@ -9,7 +9,7 @@ const Pod = (props) => {
   const color = (value /*value[1]*/, minVal = 0, maxVal /*value[0]*/) => {
     const numValue = parseInt(value);
     if (!numValue) return "red";
-    if (!active) return "transparent"
+    if (!active) return "transparent";
 
     const normalizedValue = (numValue - minVal) / (maxVal - minVal);
     const r = Math.floor(normalizedValue * 255);
@@ -19,26 +19,25 @@ const Pod = (props) => {
 
   return (
     <div
-      id='pod'
+      id="pod"
       className=""
       onMouseEnter={() => setIsShowing(true)}
       onMouseLeave={() => setIsShowing(false)}
       onClick={() => {
         fetchInfo(metric, "1h", "pod");
-        setClickedPod(pod.metric.pod)
+        setClickedPod(pod.metric.pod);
       }}
     >
-        {isShowing && ( // Pop up appear on hover for every pod 
-            <div id="pod-info">
-                <p>Pod Name: {pod.metric.pod}</p>
-                <p>Microservices: </p>
-                <p>Container: </p>
-                <p>Active/Inactive: </p>
-                <p>Error Rate: </p>
-            </div>
-        )}
+      {isShowing && ( // Pop up appear on hover for every pod
+        <div id="pod-info">
+          <p>Pod Name: {pod.metric.pod}</p>
+          <p>Microservices: </p>
+          <p>Container: </p>
+          <p>Active/Inactive: </p>
+          <p>Error Rate: </p>
+        </div>
+      )}
     </div>
-    
   );
 };
 
@@ -46,7 +45,7 @@ Pod.propTypes = {
   metric: PropTypes.string,
   pod: PropTypes.object,
   fetchInfo: PropTypes.func,
-  setClickedPod: PropTypes.func
+  setClickedPod: PropTypes.func,
 };
 
 export default Pod;

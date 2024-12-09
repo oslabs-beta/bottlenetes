@@ -6,6 +6,8 @@ import Overview from "../components/Overview";
 import ErrorRate from "../components/ErrorRate";
 import Metrics from "../components/Metrics";
 import PodGrid from "../components/PodGrid";
+import TestGrid from "../test-components/TestGrid";
+import TestRequestLimit from "../test-components/TestRequestLimit";
 import RequestLimit from "../components/RequestLimit";
 
 // Pod level data to be displayed, updates when user clicks into pod
@@ -48,7 +50,9 @@ const MainContainer = ({ username }) => {
       }
     } catch (error) {
       console.error(error);
-      alert("😿 Could not fetch data from the server. TryingToFetch default data");
+      alert(
+        "😿 Could not fetch data from the server. TryingToFetch default data",
+      );
     }
   };
   //Used to populate overview component
@@ -67,25 +71,50 @@ const MainContainer = ({ username }) => {
   }, []);
 
   return (
-    <div id="main-container">
-      <button onClick={() => setMenu(true)}>Menu</button>
-      {!menu && <MenuContainer />}
-      <h1>{`Welcome, ${username}`}</h1>
-      <div /*grid*/>
+    <div
+      id="main-container"
+      className="text-sinc-100 flex min-h-screen flex-col gap-4 bg-zinc-900 p-4"
+    >
+      <header className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setMenu(true)}
+            className="rounded bg-zinc-800 px-4 py-2 text-zinc-100 hover:bg-zinc-700"
+          >
+            Menu
+          </button>
+          {!menu && <MenuContainer />}
+        </div>
+        <h1 className="text-zinc-200 text-2xl font-semibold">{`Welcome, ${username}`}</h1>
+      </header>
+      <div className="rounded bg-zinc-800 p-4">
         <Overview overviewData={overviewData} />
-        <RequestLimit defaultView={defaultView} clickedPod={clickedPod} />
-        <ErrorRate defaultView={defaultView} clickedPod={clickedPod} />
-        <Metrics defaultView={defaultView} clickedPod={clickedPod} />
-        <PodGrid
-          defaultView={defaultView}
-          setDefaultView={setDefaultView}
-          setClickedPod={setClickedPod}
-          metric={metric}
-          setMetric={setMetric}
-        />
       </div>
-      <button onClick={() => setDefaultView(true)}>Reset to default</button>
-      <button>Ask AI</button>
+      {/*Arrange components in columns for a larger screen, and stack vertically if the screen is smaller*/}
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-4">
+        <div className="relative flex-auto rounded bg-zinc-800 p-4 xl:col-span-2">
+          <TestRequestLimit defaultView={defaultView} clickedPod={clickedPod} />
+        </div>
+        <div className="rounded bg-zinc-800 p-4 xl:col-span-2">
+          <ErrorRate defaultView={defaultView} clickedPod={clickedPod} />
+        </div>
+        <div className="rounded bg-zinc-800 p-4 xl:col-span-2">
+          <Metrics defaultView={defaultView} clickedPod={clickedPod} />
+        </div>
+        <div className="flex flex-col rounded bg-zinc-800 p-4 xl:col-span-2">
+          <TestGrid
+            defaultView={defaultView}
+            setDefaultView={setDefaultView}
+            setClickedPod={setClickedPod}
+            metric={metric}
+            setMetric={setMetric}
+          />
+        </div>
+        <div className="mt-4 flex justify-end">
+          <button onClick={() => setDefaultView(true)}>Reset to default</button>
+          <button>Ask AI</button>
+        </div>
+      </div>
     </div>
   );
 };

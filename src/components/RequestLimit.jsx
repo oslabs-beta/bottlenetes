@@ -80,20 +80,20 @@ const RequestLimit = ({ clickedPod }) => {
         {
           label: "Request Rate",
           data: podData.requestRate,
-          backgroundColor: "rgba(102, 255, 141, 0.8)" //placeholder
+          backgroundColor: "rgba(102, 255, 141, 0.8)", //placeholder
         },
         {
           label: "Request Limit",
           data: podData.request,
           backgroundColor: "rgba(255, 104, 112, 0.8)",
-          borderRadius: 50
+          borderRadius: 50,
         },
       ],
     };
   } else data = null;
 
   return (
-    <div className='bg-zinc-800'>
+    <div className="relative w-full h-full flex items-center justify-center">
       <Bar options={options} data={data} />
     </div>
   );
