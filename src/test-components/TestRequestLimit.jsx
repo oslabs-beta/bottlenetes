@@ -53,14 +53,15 @@ const TestRequestLimit = () => {
     datasets: [
       {
         label: "Request Rate",
-        data: [15, 35, 80, 25, 37],
+        data: [15, 35, 75, 25, 37],
         backgroundColor: "rgba(102, 255, 141, 0.7)", //placeholder
+        borderRadius: 10,
       },
       {
         label: "Request Limit",
-        data: [100, 100, 100, 100, 100],
+        data: [72, 100, 85, 100, 60],
         backgroundColor: "rgba(255, 104, 112, 0.7)",
-        borderRadius: 50,
+        borderRadius: 20,
       },
     ],
   };
