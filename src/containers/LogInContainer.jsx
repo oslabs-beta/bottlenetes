@@ -27,7 +27,7 @@ const LogInContainer = (props) => {
       }
     } catch (error) {
       console.error(`🤔 Log in failed: ${error}`);
-      alert("Unable to log in. Please check your credential.");
+      alert("Unable to log in. Please check your credentials.");
     }
   };
 
