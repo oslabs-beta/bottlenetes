@@ -31,6 +31,9 @@ const MainContainer = ({ username }) => {
   // Which pod has been clicked
   const [clickedPod, setClickedPod] = useState("");
 
+  // Data of selected pod
+  const [podData, setPodData] = useState([]);
+
   //helper function
   const fetchData = async (method, endpoint, body) => {
     try {
@@ -46,13 +49,11 @@ const MainContainer = ({ username }) => {
       } else {
         const data = await response.json();
         console.error(data);
-        alert(response.statusText);
+        // alert(response.statusText);
       }
     } catch (error) {
       console.error(error);
-      alert(
-        "😿 Could not fetch data from the server. TryingToFetch default data",
-      );
+      // alert("😿 Could not fetch data from the server. TryingToFetch default data");
     }
   };
   //Used to populate overview component
