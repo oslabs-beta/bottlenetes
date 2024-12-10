@@ -20,7 +20,7 @@ ChartJS.register(
   Legend,
 );
 
-const TestRequestLimit = () => {
+const TestLatency = () => {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -73,4 +73,4 @@ const TestRequestLimit = () => {
   );
 };
 
-export default TestRequestLimit;
+export default TestLatency;
