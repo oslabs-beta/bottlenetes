@@ -27,17 +27,22 @@ const TestRequestLimit = () => {
     scales: {
       x: {
         stacked: true,
+        grid: { color: '#4C566A' },
+        ticks: { color: '#D8DEE9' },
       },
       y: {
         stacked: false,
+        grid: { color: '#4C566A' },
+        ticks: { color: '#D8DEE9' },
       },
     },
     plugins: {
       legend: {
         position: "bottom",
+        font: { color: '#D8DEE9' },
       },
       title: {
-        display: true,
+        display: false,
         text: `Request Limit for Pod`,
         color: "rgba(228, 228, 231, 0.8)",
         font: {
@@ -54,20 +59,20 @@ const TestRequestLimit = () => {
       {
         label: "Request Rate",
         data: [15, 35, 75, 25, 37],
-        backgroundColor: "rgba(102, 255, 141, 0.7)", //placeholder
-        borderRadius: 10,
+        backgroundColor: "#1d4ed8", //placeholder
+        borderRadius: 0,
       },
       {
         label: "Request Limit",
         data: [72, 100, 85, 100, 60],
-        backgroundColor: "rgba(255, 104, 112, 0.7)",
-        borderRadius: 20,
+        backgroundColor: "#60a5fa",
+        borderRadius: 10,
       },
     ],
   };
 
   return (
-    <div className="min-h-[400px] w-full rounded bg-slate-800 p-4">
+    <div className="min-h-[400px] w-full p-4">
       <Bar options={options} data={data} />
     </div>
   );

@@ -14,9 +14,9 @@ const TestGrid = () => {
 
   const color = (value /*value[1]*/, minVal = 0, maxVal /*value[0]*/) => {
     const normalizedValue = (value - minVal) / (maxVal - minVal);
-    const r = Math.floor(normalizedValue * 255);
+    const r = 255 - (Math.floor(normalizedValue * 180));
 
-    return `rgb(${r}, 255, 0.1)`;
+    return `rgb(${r}, 255, 141, 1)`;
   };
 
   const buttonArray = [];
@@ -26,7 +26,7 @@ const TestGrid = () => {
       buttonArray.push(
         <button
           key={i}
-          className="m-0.5 rounded-2xl bg-green-400 py-11 transition hover:filter hover:brightness-90"
+          className="m-0.5 rounded-3xl brightness-90 py-7 px-3 transition hover:filter hover:brightness-50"
           style={{
             backgroundColor: color(Math.floor(Math.random() * 100), 0, 100),
           }}
@@ -38,7 +38,7 @@ const TestGrid = () => {
       buttonArray.push(
         <button
           key={i}
-          className="m-0.5 rounded-2xl py-11 bg-red-400 transition hover:filter hover:brightness-90"
+          className="bg-gradient-to-bl from-[rgba(255,120,112,0.8)] to-[rgba(255,84,112,0.8)] m-0.5 px-3 rounded-3xl py-7 transition hover:filter hover:brightness-50"
         >
           
         </button>,
@@ -47,7 +47,7 @@ const TestGrid = () => {
       buttonArray.push(
         <button
           key={i}
-          className="m-0.5 rounded-2xl py-11 bg-slate-700 transition hover:filter hover:brightness-90"
+          className="m-0.5 rounded-3xl py-7 px-3 bg-gradient-to-bl from-slate-600 to-slate-700 brightness-90 transition hover:filter hover:brightness-50"
         >
           
         </button>,
@@ -56,7 +56,7 @@ const TestGrid = () => {
   }
 
   return (
-    <div id="test-grid" className="grid h-screen grid-cols-8 overflow-scroll">
+    <div id="test-grid" className="grid h-screen rounded-2xl grid-cols-12 overflow-scroll">
       {buttonArray}
     </div>
   );
