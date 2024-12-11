@@ -25,7 +25,7 @@ const TestGrid = () => {
       buttonArray.push(
         <button
           key={i}
-          className="m-0.5 aspect-square rounded-full brightness-90 transition hover:brightness-50 hover:filter"
+          className="m-0.5 aspect-square rounded-xl brightness-90 transition hover:brightness-50 hover:filter"
           style={{
             backgroundColor: color(Math.floor(Math.random() * 100), 0, 100),
           }}
@@ -35,14 +35,14 @@ const TestGrid = () => {
       buttonArray.push(
         <button
           key={i}
-          className="m-0.5 aspect-square rounded-full bg-[rgba(255,43,19,0.7)] transition hover:brightness-50 hover:filter"
+          className="m-0.5 aspect-square rounded-xl bg-[rgba(255,43,19,0.7)] transition hover:brightness-50 hover:filter"
         ></button>,
       );
     } else {
       buttonArray.push(
         <button
           key={i}
-          className="m-0.5 aspect-square rounded-full border-4 border-slate-600 brightness-90 transition hover:bg-slate-900 hover:filter"
+          className="m-0.5 aspect-square rounded-xl border-4 border-slate-800 brightness-90 transition hover:bg-slate-900 hover:filter"
         ></button>,
       );
     }
@@ -53,7 +53,7 @@ const TestGrid = () => {
       <div className="w-3/4 overflow-auto p-4">
         <div
           id="test-grid"
-          className="grid h-screen grid-cols-3 gap-1 overflow-scroll md:grid-cols-7 lg:grid-cols-5 xl:grid-cols-7 2xl:grid-cols-9"
+          className="grid h-screen grid-cols-3 overflow-scroll md:grid-cols-7 lg:grid-cols-5 xl:grid-cols-7 2xl:grid-cols-9"
         >
           {buttonArray}
         </div>
