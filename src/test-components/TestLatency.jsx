@@ -32,9 +32,12 @@ const TestLatency = () => {
     scales: {
       x: {
         stacked: false,
+        ticks: { color: "#D8DEE9" },
       },
       y: {
         stacked: false,
+        grid: { color: "#4C566A" },
+        ticks: { color: "#D8DEE9" },
       },
     },
     plugins: {
@@ -59,14 +62,14 @@ const TestLatency = () => {
       {
         label: "Request Rate",
         data: [27, 35, 60, 75, 37],
-        backgroundColor: "#B48EAD", //placeholder
-        borderColor: "#B48EAD",
+        backgroundColor: "rgba(191, 219, 254, 1)", //placeholder
+        borderColor: "rgba(191, 219, 254, 0.8)",
       },
       {
         label: "Request Limit",
         data: [72, 100, 40, 20, 60],
-        backgroundColor: "#81A1C1",
-        borderColor: "#81A1C1",
+        backgroundColor: "rgba(59, 130, 246, 1)",
+        borderColor: "rgba(59, 130, 246, 0.8)",
       },
     ],
   };
