@@ -59,7 +59,7 @@ const TestGrid = () => {
         </div>
       </div>
       <div className="flex w-1/4 min-w-[200px] max-w-[250px] flex-col justify-start gap-4 p-4">
-        <button className="font-semibold rounded-2xl bg-blue-700 px-4 py-2 py-5 text-lg text-slate-200 hover:brightness-90 hover:filter">
+        <button className="font-semibold rounded-2xl bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] px-4 py-2 py-5 text-lg text-slate-200 hover:brightness-90 hover:filter">
           CPU Usage (%)
         </button>
         <button className="font-semibold rounded-2xl bg-gradient-to-r from-slate-950 to-slate-900 px-4 py-2 py-5 text-lg text-slate-400 hover:brightness-90 hover:filter">

@@ -26,7 +26,7 @@ const TestRequestLimit = () => {
     maintainAspectRatio: false,
     scales: {
       x: {
-        stacked: true,
+        stacked: false,
         grid: { color: "transparent" },
         ticks: { 
           color: "#94a3b8",
@@ -87,7 +87,7 @@ const TestRequestLimit = () => {
         label: "Request Rate",
         data: [15, 35, 75, 25, 37],
         backgroundColor: "rgba(191, 219, 254, 1)", //placeholder
-        borderRadius: 0,
+        borderRadius: 10,
         maxBarThickness: 90,
       },
       {
