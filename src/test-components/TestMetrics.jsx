@@ -34,7 +34,7 @@ const TestMetrics = () => {
         stacked: false,
         grid: { color: "transparent" },
         ticks: { 
-          color: "#94a3b8",
+          color: "#1e293b",
           font: {
             size: 14,
           },
@@ -44,7 +44,7 @@ const TestMetrics = () => {
         stacked: false,
         grid: { color: "transparent" },
         ticks: { 
-          color: "#94a3b8",
+          color: "#1e293b",
           font: {
             size: 14,
           },
@@ -55,7 +55,7 @@ const TestMetrics = () => {
       legend: {
         position: "bottom",
         labels: {
-          color: "#94a3b8",
+          color: "#1e293b",
           font: {
             size: 15,
           },
@@ -92,8 +92,8 @@ const TestMetrics = () => {
       {
         label: "RAM Usage (%)",
         data: [47, 35, 65, 11, 86],
-        backgroundColor: "rgba(191, 219, 254, 1)", //placeholder
-        borderColor: "rgba(191, 219, 254, 1)",
+        backgroundColor: "#818cf8", //placeholder
+        borderColor: "#818cf8",
       },
       {
         label: "CPU Usage (%)",

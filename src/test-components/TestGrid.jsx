@@ -25,7 +25,7 @@ const TestGrid = () => {
       buttonArray.push(
         <button
           key={i}
-          className="m-0.5 aspect-square rounded-xl brightness-90 transition hover:brightness-50 hover:filter"
+          className="m-0.5 aspect-square rounded-xl brightness-90 transition hover:border-[5px] border-blue-600 hover:filter"
           style={{
             backgroundColor: color(Math.floor(Math.random() * 100), 0, 100),
           }}
@@ -35,14 +35,14 @@ const TestGrid = () => {
       buttonArray.push(
         <button
           key={i}
-          className="m-0.5 aspect-square rounded-xl bg-[#db6451] transition hover:brightness-50 hover:filter"
+          className="m-0.5 aspect-square rounded-xl bg-[#db6451] transition hover:border-[5px] border-blue-600 hover:filter"
         ></button>,
       );
     } else {
       buttonArray.push(
         <button
           key={i}
-          className="m-0.5 aspect-square rounded-xl border-4 border-slate-800 brightness-90 transition hover:bg-slate-900 hover:filter"
+          className="m-0.5 aspect-square rounded-xl border-4 border-slate-500 brightness-90 transition hover:border-4 transition hover:border-blue-500 hover:filter"
         ></button>,
       );
     }

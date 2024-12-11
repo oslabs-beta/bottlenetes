@@ -14,7 +14,7 @@ export default {
       },
       backgroundImage: {
         "custom-gradient":
-          "linear-gradient(45deg, #0F172A 55%, #1B274D 70%, #2F3E5C 85%, #0F172A)",
+          "linear-gradient(225deg, #e2e8f0 35%, #dbeafe 50%, #ede9fe 65%, #e2e8f0)",
       },
       keyframes: {
         textColorAnimation: {

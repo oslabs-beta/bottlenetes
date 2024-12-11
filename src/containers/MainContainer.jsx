@@ -122,7 +122,7 @@ const MainContainer = ({ username }) => {
         </div>
       </header>
       <div className="bg-custom-gradient">
-        <div className="border-b-2 border-slate-600 bg-slate-950 p-10">
+        <div className="border-b-2 border-slate-300 p-10">
           <TestOverview overviewData={overviewData} />
         </div>
         <div
@@ -131,8 +131,8 @@ const MainContainer = ({ username }) => {
         >
           {/*Arrange components in columns for a larger screen, and stack vertically if the screen is smaller*/}
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 xl:grid-cols-4">
-            <div className="relative flex-auto rounded-3xl p-4 shadow-custom-lg xl:col-span-2">
-              <h2 className="text-center text-2xl font-semibold text-slate-300">
+            <div className="relative flex-auto rounded-3xl bg-slate-100 p-4 xl:col-span-2">
+              <h2 className="text-center text-2xl font-semibold text-slate-900">
                 Request Rate vs. Limit
               </h2>
               <TestRequestLimit
@@ -140,20 +140,20 @@ const MainContainer = ({ username }) => {
                 clickedPod={clickedPod}
               />
             </div>
-            <div className="rounded-3xl p-4 shadow-custom-lg xl:col-span-2">
-              <h2 className="text-center text-2xl font-semibold text-slate-300">
+            <div className="rounded-3xl bg-slate-100 p-4 xl:col-span-2">
+              <h2 className="text-center text-2xl font-semibold text-slate-900">
                 Latency
               </h2>
               <TestLatency defaultView={defaultView} clickedPod={clickedPod} />
             </div>
-            <div className="max-h-[41%] rounded-3xl p-4 shadow-custom-lg xl:col-span-2">
-              <h2 className="text-center text-2xl font-semibold text-slate-300">
+            <div className="max-h-[41%] rounded-3xl bg-slate-100 p-4 xl:col-span-2">
+              <h2 className="text-center text-2xl font-semibold text-slate-900">
                 Additional Metrics
               </h2>
               <TestMetrics defaultView={defaultView} clickedPod={clickedPod} />
             </div>
-            <div className="flex max-h-[41%] flex-col rounded-3xl bg-slate-950 p-4 shadow-custom-lg xl:col-span-2">
-              <h2 className="text-center text-2xl font-semibold text-slate-300">
+            <div className="flex max-h-[41%] flex-col rounded-3xl bg-gradient-to-l from-slate-950 to-slate-900 p-4 shadow-custom-lg xl:col-span-2">
+              <h2 className="text-center text-2xl font-semibold text-slate-200">
                 Pod Performance
               </h2>
               <TestGrid

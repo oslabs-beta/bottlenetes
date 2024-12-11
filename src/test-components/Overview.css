@@ -17,7 +17,7 @@
   overflow: hidden;
   font-size: 1rem;
   font-weight: bold;
-  color: #e2e8f0;
+  color: #2563eb;
 }
 
 /* Metrics Row */
@@ -115,22 +115,30 @@
 /* Unique Background Colors for Metrics */
 .overview-nodes {
   background: linear-gradient(135deg, #2563eb, #1d4ed8); /* Bright Blue */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+              0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .overview-pods {
   background: linear-gradient(135deg, #1e3a8a, #4338ca); /* Deep Indigo */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+              0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .overview-containers {
   background: linear-gradient(135deg, #3730a3, #312e81); /* Violet */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+              0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 /* Cluster Name as a Thin Line */
 .thin-line {
   width: 30%;
   padding: 1rem 1rem;
-  background: linear-gradient(200deg, #2563eb, #1e40af); /* Light Blue */
+  background: transparent; /* Light Blue */
   text-align: center;
   border-radius: 20px;
-  color: #e2e8f0;
+  border: 4px solid #2563eb;
+  color: #2563eb;
+  
 }

@@ -29,7 +29,7 @@ const TestRequestLimit = () => {
         stacked: false,
         grid: { color: "transparent" },
         ticks: { 
-          color: "#94a3b8",
+          color: "#1e293b",
           font: {
             size: 14,
           },
@@ -39,7 +39,7 @@ const TestRequestLimit = () => {
         stacked: false,
         grid: { color: "transparent" },
         ticks: { 
-          color: "#94a3b8",
+          color: "#1e293b",
           font: {
             size: 14,
           },
@@ -50,7 +50,7 @@ const TestRequestLimit = () => {
       legend: {
         position: "bottom",
         labels: {
-          color: "#94a3b8",
+          color: "#1e293b",
           font: {
             size: 15,
           },
