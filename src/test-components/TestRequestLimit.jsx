@@ -27,19 +27,18 @@ const TestRequestLimit = () => {
     scales: {
       x: {
         stacked: true,
-        grid: { color: '#4C566A' },
-        ticks: { color: '#D8DEE9' },
+        ticks: { color: "#D8DEE9" },
       },
       y: {
         stacked: false,
-        grid: { color: '#4C566A' },
-        ticks: { color: '#D8DEE9' },
+        grid: { color: "#4C566A" },
+        ticks: { color: "#D8DEE9" },
       },
     },
     plugins: {
       legend: {
         position: "bottom",
-        font: { color: '#D8DEE9' },
+        font: { color: "#D8DEE9" },
       },
       title: {
         display: false,
@@ -59,13 +58,13 @@ const TestRequestLimit = () => {
       {
         label: "Request Rate",
         data: [15, 35, 75, 25, 37],
-        backgroundColor: "#1d4ed8", //placeholder
+        backgroundColor: "rgba(191, 219, 254, 0.6)", //placeholder
         borderRadius: 0,
       },
       {
         label: "Request Limit",
         data: [72, 100, 85, 100, 60],
-        backgroundColor: "#60a5fa",
+        backgroundColor: "rgba(59, 130, 246, 0.6)",
         borderRadius: 10,
       },
     ],

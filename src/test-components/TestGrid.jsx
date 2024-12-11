@@ -47,7 +47,7 @@ const TestGrid = () => {
       buttonArray.push(
         <button
           key={i}
-          className="m-0.5 rounded-3xl py-7 px-3 bg-gradient-to-bl from-slate-600 to-slate-700 brightness-90 transition hover:filter hover:brightness-50"
+          className="m-0.5 rounded-3xl py-7 px-3 bg-gradient-to-bl from-slate-700 to-slate-800 brightness-90 transition hover:filter hover:brightness-50"
         >
           
         </button>,
