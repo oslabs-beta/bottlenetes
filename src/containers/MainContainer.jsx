@@ -113,7 +113,7 @@ const MainContainer = ({ username }) => {
             </button>
             {!menu && <MenuContainer />}
           </div>
-          <h1 className="bg-gradient-to-bl from-blue-400 to-blue-700 bg-clip-text px-5 font-sans text-5xl font-bold text-transparent transition duration-300 hover:scale-105">
+          <h1 className="bg-gradient-to-bl from-blue-500 to-blue-600 bg-clip-text px-5 font-sans text-5xl font-bold text-transparent transition duration-300 hover:scale-105">
             BottleNetes
           </h1>
         </div>
@@ -127,11 +127,11 @@ const MainContainer = ({ username }) => {
         </div>
         <div
           id="main-container"
-          className="flex min-h-screen flex-col gap-4 p-4 text-slate-100"
+          className="flex min-h-screen flex-col gap-4 p-6 text-slate-100"
         >
           {/*Arrange components in columns for a larger screen, and stack vertically if the screen is smaller*/}
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-4">
-            <div className="relative flex-auto rounded-3xl border-slate-600 p-4 xl:col-span-2">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 xl:grid-cols-4">
+            <div className="relative flex-auto rounded-3xl p-4 shadow-custom-lg xl:col-span-2">
               <h2 className="text-center text-2xl font-semibold text-slate-300">
                 Request Rate vs. Limit
               </h2>
@@ -140,20 +140,20 @@ const MainContainer = ({ username }) => {
                 clickedPod={clickedPod}
               />
             </div>
-            <div className="rounded-3xl border-slate-600 p-4 xl:col-span-2">
+            <div className="rounded-3xl p-4 shadow-custom-lg xl:col-span-2">
               <h2 className="text-center text-2xl font-semibold text-slate-300">
                 Latency
               </h2>
               <TestLatency defaultView={defaultView} clickedPod={clickedPod} />
             </div>
-            <div className="max-h-[41%] rounded-3xl border-slate-600 p-4 xl:col-span-2">
+            <div className="max-h-[41%] rounded-3xl p-4 shadow-custom-lg xl:col-span-2">
               <h2 className="text-center text-2xl font-semibold text-slate-300">
                 Additional Metrics
               </h2>
               <TestMetrics defaultView={defaultView} clickedPod={clickedPod} />
             </div>
-            <div className="flex max-h-[41%] flex-col rounded-3xl border-2 border-slate-600 bg-slate-950 shadow-lg p-4 xl:col-span-2">
-              <h2 className="mb-4 text-center text-2xl font-semibold text-slate-300">
+            <div className="flex max-h-[41%] flex-col rounded-3xl bg-slate-950 p-4 shadow-custom-lg xl:col-span-2">
+              <h2 className="text-center text-2xl font-semibold text-slate-300">
                 Pod Performance
               </h2>
               <TestGrid

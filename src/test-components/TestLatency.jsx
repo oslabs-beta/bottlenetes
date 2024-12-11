@@ -32,17 +32,34 @@ const TestLatency = () => {
     scales: {
       x: {
         stacked: false,
-        ticks: { color: "#D8DEE9" },
+        grid: { color: "transparent" },
+        ticks: { 
+          color: "#94a3b8",
+          font: {
+            size: 14,
+          },
+        },
       },
       y: {
         stacked: false,
-        grid: { color: "#4C566A" },
-        ticks: { color: "#D8DEE9" },
+        grid: { color: "transparent" },
+        ticks: { 
+          color: "#94a3b8",
+          font: {
+            size: 14,
+          },
+        },
       },
     },
     plugins: {
       legend: {
         position: "bottom",
+        labels: {
+          color: "#94a3b8",
+          font: {
+            size: 15,
+          },
+        },
       },
       title: {
         display: false,
@@ -51,6 +68,19 @@ const TestLatency = () => {
         font: {
           size: 20,
         },
+      },
+      tooltip: {
+        padding: 16,
+        bodyFont: {
+            size: 16, 
+            color: "#cbd5e1",
+        },
+        titleFont: {
+            size: 16,
+            color: "#cbd5e1",
+        },
+        backgroundColor: "#020617",
+        caretSize: 10, 
       },
     },
   };
