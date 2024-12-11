@@ -25,7 +25,7 @@ const TestGrid = () => {
       buttonArray.push(
         <button
           key={i}
-          className="m-0.5 aspect-square rounded-xl brightness-90 transition hover:border-[5px] border-blue-600 hover:filter"
+          className="m-0.5 aspect-square rounded-xl border-blue-600 brightness-90 transition hover:border-[5px] hover:filter"
           style={{
             backgroundColor: color(Math.floor(Math.random() * 100), 0, 100),
           }}
@@ -35,14 +35,14 @@ const TestGrid = () => {
       buttonArray.push(
         <button
           key={i}
-          className="m-0.5 aspect-square rounded-xl bg-[#db6451] transition hover:border-[5px] border-blue-600 hover:filter"
+          className="m-0.5 aspect-square rounded-xl border-blue-600 bg-[#db6451] transition hover:border-[5px] hover:filter"
         ></button>,
       );
     } else {
       buttonArray.push(
         <button
           key={i}
-          className="m-0.5 aspect-square rounded-xl border-4 border-slate-500 brightness-90 transition hover:border-4 transition hover:border-blue-500 hover:filter"
+          className="m-0.5 aspect-square rounded-xl border-4 border-slate-500 brightness-90 transition hover:border-4 hover:border-blue-500 hover:filter"
         ></button>,
       );
     }
@@ -59,10 +59,10 @@ const TestGrid = () => {
         </div>
       </div>
       <div className="flex w-1/4 min-w-[200px] max-w-[250px] flex-col justify-start gap-4 p-4">
-        <button className="font-semibold rounded-2xl bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] px-4 py-2 py-5 text-lg text-slate-200 hover:brightness-90 hover:filter">
+        <button className="rounded-2xl bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] px-4 py-2 py-5 text-lg font-semibold text-slate-200 hover:brightness-90 hover:filter">
           CPU Usage (%)
         </button>
-        <button className="font-semibold rounded-2xl bg-gradient-to-r from-slate-950 to-slate-900 px-4 py-2 py-5 text-lg text-slate-400 hover:brightness-90 hover:filter">
+        <button className="rounded-2xl bg-gradient-to-r from-slate-950 to-slate-900 px-4 py-2 py-5 text-lg font-semibold text-slate-400 hover:brightness-90 hover:filter">
           Latency
         </button>
       </div>
