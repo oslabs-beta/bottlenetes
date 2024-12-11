@@ -20,6 +20,8 @@ import "../styles.css";
 const MainContainer = ({ username }) => {
   const url = "http:/localhost:3000/";
 
+  username = "Quin";
+
   // State for when the menu button is clicked
   const [menu, setMenu] = useState(false);
 
@@ -75,61 +77,100 @@ const MainContainer = ({ username }) => {
   // }, []);
 
   return (
-    <div
-      id="main-container"
-      className="text-sinc-100 flex min-h-screen flex-col gap-4 bg-gradient-to-bl from-slate-950 from-10% via-slate-800 via-70% to-cyan-950 to-90% p-4"
-    >
-      <header className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-        <div className="flex items-center gap-4">
-          <button
-            onClick={() => setMenu(true)}
-            className="rounded bg-slate-800 text-xl font-semibold px-6 py-3 text-slate-200 hover:bg-slate-700"
-          >
-            Menu
-          </button>
-          {!menu && <MenuContainer />}
+    <div>
+      <header className="header sticky top-0 z-50 flex flex-col items-center justify-between gap-4 border-b-2 border-slate-600 bg-slate-950 py-4 sm:flex-row">
+        <div id="leftside" className="flex items-center">
+          <div className="flex items-center gap-0 px-5">
+            <button
+              onClick={() => setMenu(true)}
+              className="group inline-flex h-12 w-12 items-center justify-center rounded border-2 border-slate-500 bg-slate-950 text-center text-slate-300"
+            >
+              <span className="sr-only">Menu</span>
+              <svg
+                className="pointer-events-none h-6 w-6 fill-current"
+                viewBox="0 0 16 16"
+              >
+                <rect
+                  className="origin-center -translate-y-[5px] translate-x-[7px]"
+                  y="7"
+                  width="9"
+                  height="2"
+                ></rect>
+                <rect
+                  className="origin-center"
+                  y="7"
+                  width="16"
+                  height="2"
+                ></rect>
+                <rect
+                  className="origin-center translate-y-[5px]"
+                  y="7"
+                  width="9"
+                  height="2"
+                ></rect>
+              </svg>
+            </button>
+            {!menu && <MenuContainer />}
+          </div>
+          <h1 className="bg-gradient-to-bl from-blue-400 to-blue-700 bg-clip-text px-5 font-sans text-5xl font-bold text-transparent transition duration-300 hover:scale-105">
+            BottleNetes
+          </h1>
         </div>
-        <h1 className="text-color-animation font-sans text-6xl font-black transition duration-300 hover:scale-105">
-          B o t t l e N e t e s
-      </h1>
-      <Hexagon
-        className="slow-spin size-35"
-        color="rgb(14, 116, 144)"
-        strokeWidth={0.5}
-      />
-      <Hexagon
-        className="slow-spin size-35 opacity-35"
-        color="rgb(8 145 178)"
-        strokeWidth={1}
-      />
-        <h1 className="text-slate-300 text-2xl font-semibold">{`Welcome, ${username}`}</h1>
+        <div className="flex items-center space-x-4">
+          <h1 className="px-5 text-2xl mr-5 font-semibold text-slate-300">{`Welcome, ${username}`}</h1>
+        </div>
       </header>
-      <div className="rounded bg-slate-800 p-4">
-        <Overview overviewData={overviewData} />
-      </div>
-      {/*Arrange components in columns for a larger screen, and stack vertically if the screen is smaller*/}
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-4">
-        <div className="relative flex-auto rounded bg-slate-800 p-4 xl:col-span-2">
-          <TestRequestLimit defaultView={defaultView} clickedPod={clickedPod} />
+      <div className="bg-custom-gradient">
+        <div className="border-b-2 border-slate-600 p-10">
+          <h1 className="text-2xl font-bold text-slate-300">Overview</h1>
+          <Overview overviewData={overviewData} />
         </div>
-        <div className="rounded bg-slate-800 p-4 xl:col-span-2">
-          <TestLatency defaultView={defaultView} clickedPod={clickedPod} />
-        </div>
-        <div className="rounded bg-slate-800 p-4 xl:col-span-2">
-          <TestMetrics defaultView={defaultView} clickedPod={clickedPod} />
-        </div>
-        <div className="flex flex-col rounded bg-slate-800 p-4 xl:col-span-2">
-          <TestGrid
-            defaultView={defaultView}
-            setDefaultView={setDefaultView}
-            setClickedPod={setClickedPod}
-            metric={metric}
-            setMetric={setMetric}
-          />
-        </div>
-        <div className="mt-4 flex justify-end">
-          <button onClick={() => setDefaultView(true)}>Reset to default</button>
-          <button>Ask AI</button>
+        <div
+          id="main-container"
+          className="flex min-h-screen flex-col gap-4 p-4 text-slate-100"
+        >
+          {/*Arrange components in columns for a larger screen, and stack vertically if the screen is smaller*/}
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-4">
+            <div className="relative flex-auto rounded-3xl border-2 border-slate-600 p-4 xl:col-span-2">
+              <h2 className="text-center text-2xl font-semibold text-slate-300">
+                Request Rate vs. Limit
+              </h2>
+              <TestRequestLimit
+                defaultView={defaultView}
+                clickedPod={clickedPod}
+              />
+            </div>
+            <div className="rounded-3xl border-2 border-slate-600 p-4 xl:col-span-2">
+              <h2 className="text-center text-2xl font-semibold text-slate-300">
+                Latency
+              </h2>
+              <TestLatency defaultView={defaultView} clickedPod={clickedPod} />
+            </div>
+            <div className="max-h-[41%] rounded-3xl border-2 border-slate-600 p-4 xl:col-span-2">
+              <h2 className="text-center text-2xl font-semibold text-slate-300">
+                Additional Metrics
+              </h2>
+              <TestMetrics defaultView={defaultView} clickedPod={clickedPod} />
+            </div>
+            <div className="flex max-h-[41%] flex-col rounded-3xl border-2 border-slate-600 p-4 xl:col-span-2">
+              <h2 className="mb-3 text-center text-2xl font-semibold text-slate-300">
+                Pod Performance
+              </h2>
+              <TestGrid
+                defaultView={defaultView}
+                setDefaultView={setDefaultView}
+                setClickedPod={setClickedPod}
+                metric={metric}
+                setMetric={setMetric}
+              />
+            </div>
+            <div className="mt-4 flex justify-end">
+              <button onClick={() => setDefaultView(true)}>
+                Reset to default
+              </button>
+              <button>Ask AI</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

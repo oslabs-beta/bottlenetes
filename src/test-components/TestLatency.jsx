@@ -1,20 +1,25 @@
-import { Bar } from "react-chartjs-2";
+import PropTypes from "prop-types";
+import { Line } from "react-chartjs-2";
+import { useEffect, useState } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarController,
-  BarElement,
+  LineController,
+  LineElement,
+  PointElement,
   Title,
   Tooltip,
   Legend,
 } from "chart.js";
+import { data } from "autoprefixer";
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
-  BarController,
-  BarElement,
+  LineController,
+  LineElement,
+  PointElement,
   Title,
   Tooltip,
   Legend,
@@ -26,7 +31,7 @@ const TestLatency = () => {
     maintainAspectRatio: false,
     scales: {
       x: {
-        stacked: true,
+        stacked: false,
       },
       y: {
         stacked: false,
@@ -37,8 +42,8 @@ const TestLatency = () => {
         position: "bottom",
       },
       title: {
-        display: true,
-        text: `Request Limit for Pod`,
+        display: false,
+        text: `Metrics`,
         color: "rgba(228, 228, 231, 0.8)",
         font: {
           size: 20,
@@ -53,22 +58,22 @@ const TestLatency = () => {
     datasets: [
       {
         label: "Request Rate",
-        data: [15, 35, 75, 25, 37],
-        backgroundColor: "rgba(102, 255, 141, 0.7)", //placeholder
-        borderRadius: 10,
+        data: [27, 35, 60, 75, 37],
+        backgroundColor: "#B48EAD", //placeholder
+        borderColor: "#B48EAD",
       },
       {
         label: "Request Limit",
-        data: [72, 100, 85, 100, 60],
-        backgroundColor: "rgba(255, 104, 112, 0.7)",
-        borderRadius: 20,
+        data: [72, 100, 40, 20, 60],
+        backgroundColor: "#81A1C1",
+        borderColor: "#81A1C1",
       },
     ],
   };
 
   return (
-    <div className="min-h-[400px] w-full rounded bg-slate-800 p-4">
-      <Bar options={options} data={data} />
+    <div className="min-h-[400px] w-full rounded p-4">
+      <Line options={options} data={data} />
     </div>
   );
 };
