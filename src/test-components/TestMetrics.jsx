@@ -62,14 +62,14 @@ const TestMetrics = () => {
       {
         label: "RAM Usage (%)",
         data: [47, 35, 65, 11, 86],
-        backgroundColor: "#F68E5F", //placeholder
-        borderColor: "#F68E5F",
+        backgroundColor: "rgba(191, 219, 254, 1)", //placeholder
+        borderColor: "rgba(191, 219, 254, 1)",
       },
       {
         label: "CPU Usage (%)",
         data: [72, 100, 85, 100, 43],
-        backgroundColor: "#F5DD90",
-        borderColor: "#F5DD90",
+        backgroundColor: "rgba(59, 130, 246, 1)",
+        borderColor: "rgba(59, 130, 246, 1)",
       },
     ],
   };
