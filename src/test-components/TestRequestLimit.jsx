@@ -27,26 +27,54 @@ const TestRequestLimit = () => {
     scales: {
       x: {
         stacked: true,
-        ticks: { color: "#D8DEE9" },
+        grid: { color: "transparent" },
+        ticks: { 
+          color: "#94a3b8",
+          font: {
+            size: 14,
+          },
+        },
       },
       y: {
         stacked: false,
-        grid: { color: "#4C566A" },
-        ticks: { color: "#D8DEE9" },
+        grid: { color: "transparent" },
+        ticks: { 
+          color: "#94a3b8",
+          font: {
+            size: 14,
+          },
+        },
       },
     },
     plugins: {
       legend: {
         position: "bottom",
-        font: { color: "#D8DEE9" },
+        labels: {
+          color: "#94a3b8",
+          font: {
+            size: 15,
+          },
+        },
       },
       title: {
         display: false,
         text: `Request Limit for Pod`,
-        color: "rgba(228, 228, 231, 0.8)",
         font: {
           size: 20,
         },
+      },
+      tooltip: {
+        padding: 16,
+        bodyFont: {
+            size: 16, 
+            color: "#cbd5e1",
+        },
+        titleFont: {
+            size: 16,
+            color: "#cbd5e1",
+        },
+        backgroundColor: "#020617",
+        caretSize: 10, 
       },
     },
   };
@@ -60,12 +88,14 @@ const TestRequestLimit = () => {
         data: [15, 35, 75, 25, 37],
         backgroundColor: "rgba(191, 219, 254, 1)", //placeholder
         borderRadius: 0,
+        maxBarThickness: 90,
       },
       {
         label: "Request Limit",
         data: [72, 100, 85, 100, 60],
         backgroundColor: "rgba(59, 130, 246, 1)",
         borderRadius: 10,
+        maxBarThickness: 90,
       },
     ],
   };

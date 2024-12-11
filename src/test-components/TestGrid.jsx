@@ -35,7 +35,7 @@ const TestGrid = () => {
       buttonArray.push(
         <button
           key={i}
-          className="m-0.5 aspect-square rounded-xl bg-[rgba(255,43,19,0.7)] transition hover:brightness-50 hover:filter"
+          className="m-0.5 aspect-square rounded-xl bg-[#db6451] transition hover:brightness-50 hover:filter"
         ></button>,
       );
     } else {
@@ -53,16 +53,16 @@ const TestGrid = () => {
       <div className="w-3/4 overflow-auto p-4">
         <div
           id="test-grid"
-          className="grid h-screen grid-cols-3 overflow-scroll md:grid-cols-7 lg:grid-cols-5 xl:grid-cols-7 2xl:grid-cols-9"
+          className="grid h-screen grid-cols-5 overflow-scroll md:grid-cols-7 lg:grid-cols-4 xl:grid-cols-5 xl-2xl:grid-cols-7 3xl:grid-cols-9"
         >
           {buttonArray}
         </div>
       </div>
-      <div className="flex w-1/4 flex-col justify-start gap-4 p-4">
-        <button className="text-semibold rounded-2xl bg-blue-700 px-4 py-2 py-5 text-lg text-slate-200 hover:brightness-90 hover:filter">
+      <div className="flex w-1/4 min-w-[200px] max-w-[250px] flex-col justify-start gap-4 p-4">
+        <button className="font-semibold rounded-2xl bg-blue-700 px-4 py-2 py-5 text-lg text-slate-200 hover:brightness-90 hover:filter">
           CPU Usage (%)
         </button>
-        <button className="text-semibold rounded-2xl bg-blue-700 px-4 py-2 py-5 text-lg text-slate-200 hover:brightness-90 hover:filter">
+        <button className="font-semibold rounded-2xl bg-gradient-to-r from-slate-950 to-slate-900 px-4 py-2 py-5 text-lg text-slate-400 hover:brightness-90 hover:filter">
           Latency
         </button>
       </div>
