@@ -10,6 +10,7 @@ import TestGrid from "../test-components/TestGrid";
 import TestRequestLimit from "../test-components/TestRequestLimit";
 import TestMetrics from "../test-components/TestMetrics";
 import TestLatency from "../test-components/TestLatency";
+import TestOverview from "../test-components/TestOverview";
 import RequestLimit from "../components/RequestLimit";
 import { Hexagon } from "lucide-react";
 import "../styles.css";
@@ -117,13 +118,12 @@ const MainContainer = ({ username }) => {
           </h1>
         </div>
         <div className="flex items-center space-x-4">
-          <h1 className="px-5 text-2xl mr-5 font-semibold text-slate-300">{`Welcome, ${username}`}</h1>
+          <h1 className="mr-5 px-5 text-2xl font-semibold text-slate-300">{`Welcome, ${username}`}</h1>
         </div>
       </header>
       <div className="bg-custom-gradient">
-        <div className="border-b-2 border-slate-600 p-10">
-          <h1 className="text-2xl font-bold text-slate-300">Overview</h1>
-          <Overview overviewData={overviewData} />
+        <div className="border-b-2 border-slate-600 bg-slate-950 p-10">
+          <TestOverview overviewData={overviewData} />
         </div>
         <div
           id="main-container"
@@ -131,7 +131,7 @@ const MainContainer = ({ username }) => {
         >
           {/*Arrange components in columns for a larger screen, and stack vertically if the screen is smaller*/}
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-4">
-            <div className="relative flex-auto rounded-3xl border-2 border-slate-600 p-4 xl:col-span-2">
+            <div className="relative flex-auto rounded-3xl border-slate-600 p-4 xl:col-span-2">
               <h2 className="text-center text-2xl font-semibold text-slate-300">
                 Request Rate vs. Limit
               </h2>
@@ -140,20 +140,20 @@ const MainContainer = ({ username }) => {
                 clickedPod={clickedPod}
               />
             </div>
-            <div className="rounded-3xl border-2 border-slate-600 p-4 xl:col-span-2">
+            <div className="rounded-3xl border-slate-600 p-4 xl:col-span-2">
               <h2 className="text-center text-2xl font-semibold text-slate-300">
                 Latency
               </h2>
               <TestLatency defaultView={defaultView} clickedPod={clickedPod} />
             </div>
-            <div className="max-h-[41%] rounded-3xl border-2 border-slate-600 p-4 xl:col-span-2">
+            <div className="max-h-[41%] rounded-3xl border-slate-600 p-4 xl:col-span-2">
               <h2 className="text-center text-2xl font-semibold text-slate-300">
                 Additional Metrics
               </h2>
               <TestMetrics defaultView={defaultView} clickedPod={clickedPod} />
             </div>
-            <div className="flex max-h-[41%] flex-col rounded-3xl border-2 border-slate-600 p-4 xl:col-span-2">
-              <h2 className="mb-3 text-center text-2xl font-semibold text-slate-300">
+            <div className="flex max-h-[41%] flex-col rounded-3xl border-2 border-slate-600 bg-slate-950 shadow-lg p-4 xl:col-span-2">
+              <h2 className="mb-4 text-center text-2xl font-semibold text-slate-300">
                 Pod Performance
               </h2>
               <TestGrid

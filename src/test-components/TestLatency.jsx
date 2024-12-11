@@ -63,13 +63,13 @@ const TestLatency = () => {
         label: "Request Rate",
         data: [27, 35, 60, 75, 37],
         backgroundColor: "rgba(191, 219, 254, 1)", //placeholder
-        borderColor: "rgba(191, 219, 254, 0.8)",
+        borderColor: "rgba(191, 219, 254, 1)",
       },
       {
         label: "Request Limit",
         data: [72, 100, 40, 20, 60],
         backgroundColor: "rgba(59, 130, 246, 1)",
-        borderColor: "rgba(59, 130, 246, 0.8)",
+        borderColor: "rgba(59, 130, 246, 1)",
       },
     ],
   };
