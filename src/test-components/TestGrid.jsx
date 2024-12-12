@@ -42,7 +42,7 @@ const TestGrid = () => {
       buttonArray.push(
         <button
           key={i}
-          className="m-0.5 aspect-square rounded-xl border-4 border-slate-500 brightness-90 transition hover:border-4 hover:border-blue-500 hover:filter"
+          className="m-0.5 aspect-square rounded-xl border-4 border-slate-600 brightness-90 transition hover:border-[5px] hover:border-blue-500 hover:filter"
         ></button>,
       );
     }
@@ -62,7 +62,7 @@ const TestGrid = () => {
         <button className="rounded-2xl bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] px-4 py-2 py-5 text-lg font-semibold text-slate-200 hover:brightness-90 hover:filter">
           CPU Usage (%)
         </button>
-        <button className="rounded-2xl bg-gradient-to-r from-slate-950 to-slate-900 px-4 py-2 py-5 text-lg font-semibold text-slate-400 hover:brightness-90 hover:filter">
+        <button className="rounded-2xl bg-gradient-to-r from-slate-200 to-slate-100 px-4 py-2 py-5 text-lg font-semibold text-slate-500 hover:brightness-90 hover:filter">
           Latency
         </button>
       </div>

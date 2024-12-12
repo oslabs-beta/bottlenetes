@@ -152,9 +152,9 @@ const MainContainer = ({ username }) => {
               </h2>
               <TestMetrics defaultView={defaultView} clickedPod={clickedPod} />
             </div>
-            <div className="flex max-h-[41%] flex-col rounded-3xl bg-gradient-to-l from-slate-950 to-slate-900 p-4 shadow-custom-lg xl:col-span-2">
-              <h2 className="text-center text-2xl font-semibold text-slate-200">
-                Pod Performance
+            <div className="flex max-h-[41%] flex-col rounded-3xl bg-slate-100 p-4 xl:col-span-2">
+              <h2 className="text-center text-2xl font-bold text-blue-700">
+                Select Pod
               </h2>
               <TestGrid
                 defaultView={defaultView}
