@@ -153,7 +153,7 @@ const MainContainer = ({ username }) => {
               <TestMetrics defaultView={defaultView} clickedPod={clickedPod} />
             </div>
             <div className="flex max-h-[41%] flex-col rounded-3xl bg-slate-100 p-4 xl:col-span-2">
-              <h2 className="text-center text-2xl font-bold text-blue-700">
+              <h2 className="text-center text-2xl font-bold text-blue-600">
                 Select Pod
               </h2>
               <TestGrid
