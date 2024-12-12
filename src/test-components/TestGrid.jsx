@@ -49,7 +49,7 @@ const TestGrid = () => {
   }
 
   return (
-    <div className="align-space-between flex h-full overflow-scroll">
+    <div className="align-space-between flex h-full overflow-scroll scrollbar-thin scrollbar-thumb-gray-300 scrollbar-hide scrollbar-track-transparent">
       <div className="w-3/4 overflow-auto p-4">
         <div
           id="test-grid"
