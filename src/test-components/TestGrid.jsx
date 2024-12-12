@@ -62,7 +62,7 @@ const TestGrid = () => {
         <button className="font-semibold rounded-2xl bg-gradient-to-r from-[#1d4ed8] to-[#2563eb] px-4 py-2 py-5 text-lg text-slate-200 transition hover:brightness-90 hover:filter">
           CPU Usage (%)
         </button>
-        <button className="font-semibold rounded-2xl bg-slate-900 px-4 py-2 py-5 text-lg text-slate-400 transition hover:border-4 border-blue-700 hover:filter">
+        <button className="font-semibold rounded-2xl bg-slate-900 px-4 py-2 py-5 text-lg text-slate-400 transition hover:brightness-90 hover:filter">
           Latency
         </button>
       </div>
