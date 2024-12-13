@@ -35,18 +35,20 @@ const Latency = ({ defaultView, clickedPod, latencyAppRequestHistorical }) => {
   let peakLatencyOutboundAtEachTimestamp = [];
   let peakLatencyInboundAtEachTimestamp = [];
 
-  // timeStamps =
-  //   latencyAppRequestHistorical.latencyAppRequestHistorical[0].timestampsReadable.map(
-  //     (timestamp) => {
-  //       const date = new Date(timestamp);
-  //       return date.toLocaleTimeString([], {
-  //         hour: "2-digit",
-  //         minute: "2-digit",
-  //         second: "2-digit",
-  //         hour12: false,
-  //       });
-  //     },
-  //   );
+  timeStamps =
+    latencyAppRequestHistorical.latencyAppRequestHistorical[0].timestampsReadable.map(
+      (timestamp) => {
+        const date = new Date(timestamp);
+        return date.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+        });
+      },
+    );
+  
+  console.log("latenct data: ", latencyAppRequestHistorical);
 
   if (defaultView) {
     const PodCount =
@@ -173,29 +175,31 @@ const Latency = ({ defaultView, clickedPod, latencyAppRequestHistorical }) => {
       {
         label: "Average Latency of Inbound Requests",
         data: avgLatencyInboundAtEachTimestamp,
-        borderColor: "rgb(59, 130, 246)",
+        borderColor: "rgb(59, 130, 246, 0.8)",
         tension: 0.4,
       },
       {
         label: "Average Latency of Outbound Requests",
         data: avgLatencyOutboundAtEachTimestamp,
-        borderColor: "rgb(147, 51, 234)",
+        borderColor: "rgb(147, 51, 170, 0.8)",
         tension: 0.4,
       },
       {
         label: "Peak Latency of Inbound Requests",
         data: peakLatencyInboundAtEachTimestamp,
-        borderColor: "rgb(234, 51, 51)",
+        borderColor: "rgb(170, 50, 56, 0.8)",
         tension: 0.4,
       },
       {
         label: "Peak Latency of Outbound Requests",
         data: peakLatencyOutboundAtEachTimestamp,
-        borderColor: "rgb(51, 234, 51)",
+        borderColor: "rgb(20, 175, 74, 0.8)",
         tension: 0.4,
       },
     ],
   };
+
+  console.log("latency data:", );
 
   return (
     <div className="min-h-[400px] w-full rounded p-4">
