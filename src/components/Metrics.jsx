@@ -12,7 +12,6 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { use } from "react";
 
 ChartJS.register(
   CategoryScale,

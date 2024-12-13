@@ -1,4 +1,6 @@
+// Parsing response from all queries to make sure format is correct
 export const parseResponseAllPodsStatus = (req, res, next) => {
+  // Each of these is a query result from the previous middleware
   const [
     phaseData,
     readinessData,
@@ -9,16 +11,19 @@ export const parseResponseAllPodsStatus = (req, res, next) => {
 
   const podsObj = {};
 
+  // Iterate over each phaseData query result
   phaseData.forEach((item) => {
+    // destructure some properties from phaseData
     const { pod, namespace, phase, service } = item.metric;
 
+    // Save needed properties in podsObj
     podsObj[pod] = {
       podName: pod,
       status: phase.toLowerCase(),
       namespace: namespace,
       service: service,
 
-      // Default values
+      // Default values in case data is not available
       nodeName: "node name not configured",
       clusterName: "cluster name not configured",
       restartCount: 0,
@@ -29,15 +34,19 @@ export const parseResponseAllPodsStatus = (req, res, next) => {
     };
   });
 
+  // Iterate over readiness
   readinessData.forEach((item) => {
     const { pod } = item.metric;
+    // If podsObj has podname, set it to true
     if (podsObj[pod]) {
       podsObj[pod].readiness = true;
     }
   });
 
+  // Countainer count
   containerInfoData.forEach((item) => {
     const { pod, container } = item.metric;
+    // count containers
     if (podsObj[pod] && container) {
       podsObj[pod].containers.push(container);
       podsObj[pod].containerCount++;
@@ -46,6 +55,7 @@ export const parseResponseAllPodsStatus = (req, res, next) => {
 
   restartData.forEach((item) => {
     const { pod } = item.metric;
+    // we only care about the second value (restart count)
     const restartCount = Number(item.value[1]);
     // sample data from postman:
     // "value": [
@@ -69,6 +79,7 @@ export const parseResponseAllPodsStatus = (req, res, next) => {
   });
 
   // Convert object values to array
+  // Extract values of propertiies and save it to res.locals
   res.locals.parsedData = {
     allPodsStatus: Object.values(podsObj),
   };
@@ -200,6 +211,7 @@ export const parseResponseResourceUsageHistorical = (req, res, next) => {
         usageAbsolute: [],
       };
     }
+    // Convert unreadable unix to readable timestamp
     item.values.forEach(([timestamp, value]) => {
       // convert unix stamp to human readable date
       const date = new Date(timestamp * 1000);
@@ -212,7 +224,8 @@ export const parseResponseResourceUsageHistorical = (req, res, next) => {
   absoluteData.forEach((item) => {
     const name = item.metric[res.locals.level];
     if (podsObj[name]) {
-      item.values.forEach(([timestamp, value]) => {
+      // Syntax implies that we're only using the second value, first can be ignored
+      item.values.forEach(([, value]) => {
         podsObj[name].usageAbsolute.push(Number(value));
       });
     }

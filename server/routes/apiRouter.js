@@ -31,7 +31,11 @@ import {
 } from "../controllers/responseParsingController.js";
 
 const router = express.Router();
-
+// all-pods-status endpoint goes through 4 stages:
+  // 1. Save request params and check if input is valid
+  // 2. Generate query for endpoint, save query we need to res.locals
+  // 3. Run queries, multiple if needed
+  // 4. Parse response from query output 
 router.get(
   "/all-pods-status",
   parseRequestAllPodsStatus,

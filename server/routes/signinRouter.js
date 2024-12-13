@@ -3,7 +3,9 @@ import userController from "../controllers/userController.js";
 import cookieController from "../controllers/cookieController.js";
 
 const signinRouter = express.Router();
-
+// When user signs in, POST request
+// If username and password match, send success obj
+// If not match, redirect to sign in page
 signinRouter.post(
   "/",
   userController.verifyUser,

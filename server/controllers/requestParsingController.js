@@ -14,6 +14,7 @@ const isValidType = (str) => {
   return true;
 };
 
+// GET requests have no body, skipping through
 export const parseRequestAllPodsStatus = (req, res, next) => {
   return next();
 };
@@ -22,6 +23,8 @@ export const parseRequestAllPodsRequestLimit = (req, res, next) => {
   return next();
 };
 
+// POST request middleware checks
+  // Check if each bodies are vavid
 export const parseRequestResourceUsageOneValue = (req, res, next) => {
   if (!req.body.type || !req.body.time || !req.body.level) {
     return next({
@@ -30,6 +33,7 @@ export const parseRequestResourceUsageOneValue = (req, res, next) => {
       message: { err: "Missing required parameters" },
     });
   }
+  // Check to see if body specifies cpu or memory
   if (!isValidType(req.body.type)) {
     return next({
       log: "Error in parseRequestResourceUsageOneValue middleware",
@@ -37,6 +41,7 @@ export const parseRequestResourceUsageOneValue = (req, res, next) => {
       message: { err: "Invalid type, must be cpu or memory" },
     });
   }
+  // Check if time is valid
   if (!req.body.time.match(/^(\d+)(s|m|h|d)$/)) {
     return next({
       log: "Error in parseRequestResourceUsageOneValue middleware",
@@ -44,6 +49,7 @@ export const parseRequestResourceUsageOneValue = (req, res, next) => {
       message: { err: "Invalid time format. Use format: {number}s|m|h|d" },
     });
   }
+  // Check query level
   if (!isValidLevel(req.body.level)) {
     return next({
       log: "Error in parseRequestResourceUsageOneValue middleware",
@@ -53,6 +59,7 @@ export const parseRequestResourceUsageOneValue = (req, res, next) => {
       },
     });
   }
+  // Read all values from req body and save in res.locals
   const { type, time, level } = req.body;
   res.locals.type = type;
   res.locals.timeWindow = time;
@@ -75,6 +82,7 @@ export const parseRequestResourceUsageHistorical = (req, res, next) => {
     });
   }
 
+  // Checks and req.body specifies cpu or memory
   if (!isValidType(req.body.type)) {
     return next({
       log: "Error in parseRequestResourceUsageHistorical middleware",

@@ -7,16 +7,18 @@ cookieController.createCookie = async (req, res, next) => {
   console.log("🍪 Running createCookie middleware...");
 
   try {
+    // find username in db
     const { username } = await req.body;
     const foundUserID = await Users.findOne({
       where: { username },
       attributes: ["id"],
     });
 
+    // if found, create key with ssid and value of user id
     if (foundUserID) {
       const cookie = await res.cookie("ssid", foundUserID.dataValues.id, {
         httpOnly: true,
-        sameSite: 'Lax',
+        sameSite: "Lax", // cookie persists if user goes to another page of same site
         expires: new Date(Date.now() + 3600000), // Cookie expires in 1hr
       });
       console.log(`🍪 Filling up the cookie basket...`);
@@ -49,6 +51,7 @@ cookieController.verifyCookie = async (req, res, next) => {
   try {
     const cookie = await req.cookies;
     // Check if the cookie ssid matches the user id
+    // Grant access if true
     if (cookie.ssid === res.locals.id) {
       console.log(`🍪 Verified session. Proceeds...`);
       res.locals.verifiedCookie = true;

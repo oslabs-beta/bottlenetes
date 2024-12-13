@@ -28,17 +28,22 @@ export const runSinglePromQLQuery = async (req, res, next) => {
   }
 };
 
+// Middleware to handle multiple queries
 export const runMultiplePromQLQueries = async (req, res, next) => {
   const queryStrArr = res.locals.queries;
   const queryUrlArr = [];
 
+  // Loop over query string
   for (const queryStr of queryStrArr) {
     let queryUrl;
+    // Check to see if we're querying for historical data or one data point
+    // Convert historical queries to a specific format: query range and steps
     if (res.locals.isHistorical) {
       queryUrl = `http://localhost:9090/api/v1/query_range?query=${encodeURIComponent(
         queryStr,
       )}&start=${res.locals.timeStart}&end=${res.locals.timeEnd}&step=${res.locals.timeStep}`;
     } else {
+      // Non-historical data doesn't need additional formatting
       queryUrl = `http://localhost:9090/api/v1/query?query=${encodeURIComponent(
         queryStr,
       )}`;
@@ -48,10 +53,13 @@ export const runMultiplePromQLQueries = async (req, res, next) => {
   console.log("queryUrlArr: ", queryUrlArr);
 
   res.locals.data = [];
+  // Run queries through Prometheus, 9090 nmust be open!
   for (const queryUrl of queryUrlArr) {
     try {
+      // fetch and json data
       const response = await fetch(queryUrl);
       const data = await response.json();
+      // store in res.locals
       res.locals.data.push(data.data.result);
       console.log("\nfetched data from query url: ", queryUrl);
     } catch (error) {

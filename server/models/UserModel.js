@@ -2,13 +2,14 @@ import { DataTypes, Sequelize } from "sequelize";
 import sequelize from "../db/db.js";
 import bcrypt from "bcrypt";
 
-// Define a model Users using Sequelizq
+// Define a model Users using Sequelize
+// Define user table with the following columns: id, username, etc
 const Users = sequelize.define(
   "Users",
   {
     id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4,
+      type: DataTypes.UUID, 
+      defaultValue: DataTypes.UUIDV4, 
       primaryKey: true,
     },
 
@@ -48,6 +49,8 @@ const Users = sequelize.define(
 );
 
 // Hash the password before creating and updating
+// Prehook because "beforeSave", combination of before create and before update
+// BeforeSave will hash password with BCrypt
 Users.addHook("beforeSave", async (users) => {
   console.log("😗 Currently Hashing Password...");
   try {

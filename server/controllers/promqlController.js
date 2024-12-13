@@ -1,3 +1,5 @@
+// Query middleware
+// Save queries in array in res.locals
 export const generateQueryAllPodsStatus = async (req, res, next) => {
   const query1 = "kube_pod_status_phase == 1";
   const query2 = "kube_pod_status_ready == 1";
@@ -30,6 +32,7 @@ export const generateQueryAllPodsRequestLimit = async (req, res, next) => {
 export const generateQueryResourceUsage = async (req, res, next) => {
   const { type, timeWindow, level } = res.locals;
 
+  // Query for memory and cpu are different so formating accordingly
   if (type === "memory") {
     const relativeQuery = `
       ( sum by (${level})(avg_over_time(container_memory_usage_bytes[${timeWindow}])) )
@@ -57,6 +60,7 @@ export const generateQueryResourceUsage = async (req, res, next) => {
       sum by (${level}) (rate(container_cpu_usage_seconds_total[${timeWindow}]))
     `;
 
+    // 
     res.locals.queries = [relativeQuery, absoluteQuery];
   }
 

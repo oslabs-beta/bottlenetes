@@ -1,10 +1,15 @@
 /* eslint-disable no-unused-vars */
 import express from "express";
 import cookieParser from "cookie-parser";
+
+// Cookies between frontend and backend
 import cors from "cors";
+// Graceful shutdown process
 import process from "node:process";
 import session from "express-session";
+// .env files
 import dotenv from "dotenv";
+// __dirnam, __filename, absolute path, etc
 import path from "path";
 
 import { connectDB } from "./db/db.js";
@@ -29,7 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// CORS stuffs
+// CORS stuff to connect cookies made in 3000 to 5172 (frontend)
 app.use(
   cors({
     origin: "http://localhost:5173", //Front-end PORT
@@ -37,6 +42,7 @@ app.use(
   }),
 );
 
+// CORS stuff to allow requests
 app.use((_req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
@@ -63,11 +69,13 @@ app.use("/signup", signupRouter);
 app.use("/api", apiRouter);
 
 // Serves static files
+// Selectively serve files to protect sensitive files
 app.use(express.static(path.resolve(__dirname, "../index.html")));
 app.use(express.static(path.resolve(__dirname, "../signup.html")));
 app.use(express.static(path.resolve(__dirname, "./")));
 app.use(express.static(path.resolve(__dirname, "../src/")));
 
+// Render login page
 app.get('/', (_req, res) => {
   return res.status(200).sendFile(path.resolve(__dirname, '../index.html'));
 });
@@ -102,7 +110,7 @@ app.use((err, _req, res, _next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-// Gracefullt shut down when exiting the app
+// Gracefully shut down when exiting the app
 const gracefulShutDown = async () => {
   try {
     console.log("👂 Received Shut Down Signal. Gracefully Shutting Down...");

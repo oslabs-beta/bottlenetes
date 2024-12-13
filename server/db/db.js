@@ -7,6 +7,7 @@ dotenv.config();
 
 const DB_URI = process.env.SUPABASE_URI;
 
+// Use Sequelize to connect to Supabase DB
 const sequelize = new Sequelize(DB_URI, {
   dialect: 'postgres',
   pool: {
@@ -18,6 +19,7 @@ const sequelize = new Sequelize(DB_URI, {
   logging: console.log
 });
 
+// Authenticate and connect to db
 export const connectDB = async () => {
   try {
     await sequelize.authenticate();
